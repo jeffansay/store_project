@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 
@@ -16,7 +16,7 @@ const APP_CONTAINERS = [
   SimpleLayoutComponent
 ]
 
-// Import components
+
 import {
   AppAsideComponent,
   AppBreadcrumbsComponent,
@@ -27,7 +27,8 @@ import {
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   AppSidebarMinimizerComponent,
-  APP_SIDEBAR_NAV
+  APP_SIDEBAR_NAV,
+
 } from './components';
 
 const APP_COMPONENTS = [
@@ -40,7 +41,8 @@ const APP_COMPONENTS = [
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   AppSidebarMinimizerComponent,
-  APP_SIDEBAR_NAV
+  APP_SIDEBAR_NAV,
+
 ]
 
 // Import directives
@@ -65,6 +67,9 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { LoginformComponent } from './conts/loginform/loginform.component';
+import { NotfoundComponent } from './conts/notfound/notfound.component';
+import { RegisterformComponent } from './conts/registerform/registerform.component';
 
 @NgModule({
   imports: [
@@ -79,11 +84,14 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AppComponent,
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
-    ...APP_DIRECTIVES
+    ...APP_DIRECTIVES,
+    LoginformComponent,
+    NotfoundComponent,
+    RegisterformComponent
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    useClass: PathLocationStrategy
   }],
   bootstrap: [ AppComponent ]
 })

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginformComponent } from './conts/loginform/loginform.component';
+import { NotfoundComponent } from './conts/notfound/notfound.component';
+import { RegisterformComponent } from './conts/registerform/registerform.component';
 
 // Import Containers
 import {
@@ -10,22 +13,30 @@ import {
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
-    path: '',
-    component: FullLayoutComponent,
-    data: {
-      title: 'Home'
-    },
-    children: [
-      {
-        path: 'dashboard',
-        loadChildren: './views/dashboard/dashboard.module#DashboardModule'
-      }
-    ]
+    path: 'layout',
+    component: SimpleLayoutComponent,
+  },
+  {
+    path: 'login',
+    component: LoginformComponent
+  },
+  {
+    path: 'dashboard',
+    component: FullLayoutComponent
+  },
+  {
+    path: 'register',
+    component: RegisterformComponent
+  },
+  {
+    path:'**',
+    component: NotfoundComponent
   }
+
 ];
 
 @NgModule({
