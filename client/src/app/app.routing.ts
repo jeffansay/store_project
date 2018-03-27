@@ -11,31 +11,44 @@ import {
 } from './containers';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  },
-  {
-    path: 'layout',
-    component: SimpleLayoutComponent,
-  },
-  {
-    path: 'login',
-    component: LoginformComponent
-  },
-  {
-    path: 'dashboard',
-    component: FullLayoutComponent
-  },
-  {
-    path: 'register',
-    component: RegisterformComponent
-  },
-  {
-    path:'**',
-    component: NotfoundComponent
-  }
+
+    {
+      path: '',
+     redirectTo: 'login',
+     pathMatch: 'full',
+    },
+    {
+
+      path: 'login', component: LoginformComponent
+    },
+
+    {
+      path: '',
+      component: FullLayoutComponent,
+      data: {
+        title: 'Home'
+      },
+      children: [
+        {
+          path: 'dashboard',
+          loadChildren: './views/dashboard/dashboard.module#DashboardModule'
+        },
+
+        {
+          path: 'carbon',
+          loadChildren: './views/carbon/carbon.module#CarbonModule'
+        }
+
+      ]
+    },
+    {
+      path: 'register',
+      component: RegisterformComponent
+    },
+    {
+      path: '**',
+      component: NotfoundComponent
+    }
 
 ];
 
