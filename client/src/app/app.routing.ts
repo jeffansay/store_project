@@ -37,7 +37,31 @@ export const routes: Routes = [
         {
           path: 'carbon',
           loadChildren: './views/carbon/carbon.module#CarbonModule'
-        }
+        },
+        {
+              path: 'cityhall',
+                loadChildren: './views/cityhall/lanueva.module#LanuevaModule'
+            },
+            {
+              path: 'taboan',
+                loadChildren: './views/taboan/tessie.module#TessieModule'
+            },
+            {
+                path: 'ciggar',
+                  loadChildren: './views/ciggar/cig.module#CigModule'
+              },
+              {
+              path: 'loads',
+                loadChildren: './views/loads/load.module#LoadModule'
+            },
+            {
+              path: 'search',
+                loadChildren: './views/search/entry.module#EntryModule'
+            },
+            {
+                path: 'pos',
+                  loadChildren: './views/pos/posfile.module#PosFileModule'
+          },
 
       ]
     },
