@@ -6,6 +6,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { PosComponent } from './pos.component';
 import { PostFileRoutingModule } from './postfile-routing.module';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -15,6 +16,10 @@ import { PostFileRoutingModule } from './postfile-routing.module';
     CommonModule
 
   ],
-  declarations: [ PosComponent ]
+  declarations: [
+    PosComponent,
+    EditComponent
+
+   ]
 })
 export class PosFileModule { }
